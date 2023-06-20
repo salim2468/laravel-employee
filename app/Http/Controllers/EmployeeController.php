@@ -10,12 +10,31 @@ class EmployeeController extends Controller
 {
     //
 
-    public function index()
+    public function index(Request $request)
     {
-        $employees = Employee::all();
+
+        $searchText = $request['search'] ?? "";
+
+
+        if ($searchText != "") {
+
+            $employees = Employee::where('firstName','LIKE',"%$searchText%")->orWhere('lastName','LIKE',"%$searchText%")->orWhere('address','LIKE',"%$searchText%")->orWhere('designation','LIKE',"%$searchText%")->paginate(5);
+
+           // $students = Student::where('fullName','LIKE',"%$searchText%")->orWhere('address','LIKE',"%$searchText%")->paginate(10);
+        }else{
+           // $students = Student::paginate(10);
+             $employees = Employee::paginate(5);
+
+        }
+        $data = compact('employees','searchText');
+        return view('/employee/index', $data);
+
+
+
+        //$employees = Employee::all();
 
         // employee.index means index file inside employee directory of view directory
-        return view('employee.index', ['employees' => $employees]);
+        //return view('employee.index', ['employees' => $employees]);
     }
 
     public function create()

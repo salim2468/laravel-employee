@@ -9,6 +9,13 @@
     <br>
     <br>
 
+        <form action="/employee" method="" >
+            <div class="form-group">
+                <input type="search" name="search" class="from-control" value="{{$searchText}}" placeholder="Search" style="width:50%;">
+                <button class="btn btn-primary" >Search</button>
+            </div>
+        </form>
+        <br/>
 
         <table class="table table-striped" >
             <thead >
@@ -52,6 +59,8 @@
             @endforeach
 
         </table>
+        {{ $employees->appends(['search' => $searchText])->links() }}
+
     </div>
 
 
