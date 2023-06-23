@@ -45,6 +45,18 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'dob' => 'required|date',
+            'address' => 'required',
+            'mobile' => 'required',
+            'designation' => 'required',
+            'salary' => 'required',
+
+
+        ]);
+
         $employee = Employee::create([
             'firstName' => $request->input('firstName'),
             'lastName' => $request->input('lastName'),
@@ -56,7 +68,7 @@ class EmployeeController extends Controller
         ]);
 
         // in case of redirect provide url
-        return redirect('/employee');
+        return redirect('/dashboard');
     }
 
     public function show(string $employee_id)
@@ -84,7 +96,7 @@ class EmployeeController extends Controller
             'designation' => $request->input('designation'),
             'salary' => $request->input('salary'),
         ]);
-        return redirect('/employee');
+        return redirect('/dashboard');
     }
 
 
@@ -105,7 +117,7 @@ class EmployeeController extends Controller
             'employee_id' =>$employee_id,
             'image_path' => 'profiles/'.$newImageName,
         ]);
-        return redirect()->route('employee.index');
+        return redirect()->route('dashboard');
     }
 
     public  function destroy(Request $request,string $employee_id){
@@ -113,7 +125,7 @@ class EmployeeController extends Controller
         if (!is_null($employee)) {
             $employee->delete();
         }
-        return redirect('/employee');
+        return redirect('/dashboard');
     }
 
 

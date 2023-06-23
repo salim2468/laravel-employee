@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +22,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function (Request $request) {
+    $searchText = $request['search'] ?? "";
+    if ($searchText != "") {
+        $employees = Employee::where('firstName','LIKE',"%$searchText%")->orWhere('lastName','LIKE',"%$searchText%")->orWhere('address','LIKE',"%$searchText%")->orWhere('designation','LIKE',"%$searchText%")->paginate(5);
+    }else{
+        $employees = Employee::paginate(5);
 
-    return view('dashboard');
+    }
+    $data = compact('employees','searchText');
+
+    return view('dashboard',$data);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

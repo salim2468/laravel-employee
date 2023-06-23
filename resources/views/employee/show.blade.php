@@ -1,29 +1,19 @@
 @extends('layouts.common')
-
-
-
 @section('content')
     <style>
-
-
         .card {
             padding: 20px;
             border-style: solid;
             border-radius: 8px;
             background-color: #ededed;
             margin: 20px;
-
         }
-
         td {
             text-align: center;
         }
-
     </style>
-
-        <h2 style="background-color: #9ca3af;padding: 8px;">Employee </h2>
+        <h5 style="background-color: #9ca3af;padding: 8px;">Employee </h5>
     <div style="padding: 8px;">
-
         <div style="display: flex; flex-wrap: wrap;justify-content: center;align-items: center">
             <div class="card">
                 <table>
@@ -39,7 +29,6 @@
                                 />
                             </td>
                         </tr>
-
                     @else
                         <tr>
                             <td >
@@ -52,26 +41,21 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="aButton">
+                            <td class="aButton" >
                                 <a href="{{route('employee.image',['employee_id'=>$employee->id])}}"
+                                   style="color: #edf2f7"
                                 >
                             <span class="material-symbols-outlined">
                                 camera
                             </span>
                                 </a>
                             </td>
-
                         </tr>
                     @endif
-
-
                 </table>
-
             </div>
             <div class="card">
                 <table width="350">
-
-
                     <tr>
                         <td>
                             <ul class="list-group list-group-horizontal">
@@ -89,13 +73,11 @@
                         </td>
                     </tr>
                     <tr>
-
                         <td>
                             <ul class="list-group list-group-horizontal">
                                 <li class="list-group-item" style="width: 100%;">Mobile</li>
                                 <li class="list-group-item" style="width: 100%;">{{$employee->mobile}}</li>
                             </ul>
-
                         </td>
                     </tr>
                     <tr>
@@ -112,7 +94,6 @@
                                 <li class="list-group-item" style="width: 100%;">Designation</li>
                                 <li class="list-group-item" style="width: 100%;">{{$employee->designation}}</li>
                             </ul>
-
                         </td>
                     </tr>
                     <tr>
@@ -126,14 +107,11 @@
                     <tr>
                         <td>
                             <a href="{{route('employee.edit',['employee_id'=>$employee->id])}}" style="text-decoration: none">
-
                             <div class="aButton">
-
                                     Edit
                                     <span class="material-symbols-outlined" style="font-size: 15px">
                                 edit
                             </span>
-
                             </div>
                             </a>
                         </td>

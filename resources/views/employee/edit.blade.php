@@ -6,9 +6,9 @@
 
 
 
-<div style="margin: 0px 60px;">
-    <h2>Edit Employee {{$employee->firstName}}</h2>
-    {{$employee->id}}
+<div >
+    <h5 style="background-color: #9ca3af;padding: 8px;">Edit Employee {{$employee->firstName}}</h5>
+    <div style="padding: 18px; background-color: whitesmoke;margin: 10px">
     <form method="post" action="{{route('employee.update',['employee_id'=>$employee->id])}}">
         @csrf
         @method('put')
@@ -41,8 +41,9 @@
             <input type="number" value={{$employee->salary}} name="salary" class="form-control"placeholder="Enter Salary">
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-dark">Update</button>
     </form>
+    </div>
 
 </div>
 @endsection

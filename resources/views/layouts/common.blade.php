@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../StudentManage/resources/css/card.css">
 
 
+
     <style>
 
         .aButton {
@@ -35,8 +36,12 @@
 
 
     </style>
+
 </head>
-<body >
+<body>
+
+
 @yield('content')
+
 </body>
 </html>
