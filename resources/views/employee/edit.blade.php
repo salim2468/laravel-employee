@@ -2,6 +2,8 @@
 
 @extends('layouts.common')
 
+
+@section('title','EMS- Edit Employee')
 @section('content')
 
 

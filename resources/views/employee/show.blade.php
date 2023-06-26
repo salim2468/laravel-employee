@@ -13,10 +13,10 @@
         }
     </style>
         <h5 style="background-color: #9ca3af;padding: 8px;">Employee </h5>
-    <div style="padding: 8px;">
-        <div style="display: flex; flex-wrap: wrap;justify-content: center;align-items: center">
+    <div style="padding:0px;">
+        <div style="display: flex; flex-wrap: wrap;justify-content: start;align-items: start;background-color: whitesmoke;height: 100vh">
             <div class="card">
-                <table>
+                <table style="height: 350px">
                     @if($profile_image)
                         <tr>
                             <td>
@@ -55,7 +55,7 @@
                 </table>
             </div>
             <div class="card">
-                <table width="350">
+                <table style="height: 350px;width: 300px">
                     <tr>
                         <td>
                             <ul class="list-group list-group-horizontal">
@@ -121,7 +121,7 @@
                             <form method="post" action="{{route('employee.destroy',['employee_id'=>$employee->id]) }}">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger" style="width: 100%"> Delete</button>
+                                <button type="submit" class="btn btn-dark" style="width: 100%"> Delete</button>
                             </form>
                         </td>
                     </tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
@@ -12,7 +13,9 @@ class EmployeeController extends Controller
 
     public function index(Request $request)
     {
-
+//        $u = Auth::user();
+//        $id = Auth::id();
+//        dd($id);
         $searchText = $request['search'] ?? "";
 
 
@@ -109,6 +112,9 @@ class EmployeeController extends Controller
 
     public function  upload(Request $request,string $employee_id){
         //dd($employee_id);
+
+        $request->validate(['image'=>'required']);
+
         $newImageName = time().'.'.$request->image->extension();
 
         $request->image->move(public_path('profiles'),$newImageName);

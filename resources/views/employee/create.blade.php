@@ -1,12 +1,31 @@
 
 
 @extends('layouts.common')
-
+@section('title','EMS-New Employee')
 @section('content')
 
 
 
     <h5 style="background-color: #9ca3af;padding: 8px;">Add Employee </h5>
+
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
+
+            <div class="p-6 text-gray-900" style="padding: 10px">
+
+                <a href="{{route("dashboard")}}" class="aButton" style="margin: 8px;">Dashboard</a>
+
+                <a href="{{route("employee.create")}}" class="aButton" style="margin: 8px;">Add Employee</a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
     <div style="padding: 18px; background-color: whitesmoke;margin: 10px">
     <form method="post" action="{{route('employee.store')}}">
         @csrf

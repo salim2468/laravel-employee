@@ -47,7 +47,7 @@ require __DIR__.'/auth.php';
 
 
 //grouping route in one middleware
-Route::middleware('auth')->group(function (){
+Route::middleware(['auth:web'])->group(function (){
 
     Route::get('/employee',[EmployeeController::class,'index'])->name('employee.index');
     Route::get('/employee/create',[EmployeeController::class,'create'])->name('employee.create');

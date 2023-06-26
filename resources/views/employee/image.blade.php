@@ -11,6 +11,13 @@
         @csrf
            <label>Select Image</label>
         <input type="file" name="image" class="form-control" >
+        @error('image')
+        <div class="alert alert-danger" role="alert">
+            <li>
+                {{$message}}
+            </li>
+        </div>
+        @enderror
         <br>
         <button class="btn btn-dark">Upload</button>
     </form>
