@@ -7,4 +7,27 @@ git branch
         -api
 
 
+start up
+
+To enter into mysql
+    > mysql -u root
+
+create a database
+    > create database firstproject(database name);
+
+to display all database
+    > show databases;
+
+To select database
+    > use database_name;
+
+To show table in database
+    > show tables;
+
+to show the table structure or columns
+    >desc table_name;
+
+> to insert, update ,delete use sql command
+
+
 

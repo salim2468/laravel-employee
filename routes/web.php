@@ -45,6 +45,9 @@ require __DIR__.'/auth.php';
 
 
 
+//Route::get('/test',function(){
+//    p('hello');
+//});
 
 //grouping route in one middleware
 Route::middleware(['auth:web'])->group(function (){
